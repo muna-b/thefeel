@@ -1,0 +1,64 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.blueBox{
+    background-color: #004AAD;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.imgBox{
+    height: 300px;
+}
+.img{
+    height: 100%;
+    width: 100%;
+}
+.textBox{
+    height: 300px;
+    width: 300px;
+    color: #fff;
+}
+.titleBox{
+    background: #6b62ff;
+    text-align: center;
+    font-family: 'Baloo Chettan 2', cursive;
+}
+
+
+.box{
+    height: 400px;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    padding: 0px 100px;
+}
+.computerBox{
+    height: 250px;
+    width: 250px;
+}
+.computerBox img{
+    height: 100%;
+    width: 100%;
+}
+
+.cardContainer{
+    width: 350px;
+    height: 350px;
+    margin: 30px;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    /* Styles */
+    .blueBox{
+        flex-direction: column-reverse;
+        height: 600px;
+    }
+    .imgBox{
+        height: 200px;
+    }
+    }

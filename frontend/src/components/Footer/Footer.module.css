@@ -1,0 +1,49 @@
+.graph{
+    height: 70px;
+    width: 100%;
+    background-color: #004AAD;
+    border: #004AAD 1px solid;
+    display: flex;
+    flex-direction: row;
+}
+.test{
+    height: 100%;
+    width: 60%;
+    border-top: 100px solid #fff;
+    border-right: 100px solid transparent;
+}
+.contactButton{
+    background-color: #004AAD;
+    color: #fff;
+    border: #fff solid 1px;
+    border-radius: 5px;
+    margin: 10px;
+    width: 150px;
+    height: 40px;
+    font-size: 1.2em;
+    align-self: center;
+}
+.underline{
+    height: 1px;
+    width: 100%;
+    background-color: #004AAD;
+}
+.menuContainer{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #004AAD;
+}
+.menu{
+    display: flex;
+    flex-direction: row;
+}
+@media only screen and (max-width: 600px) {
+    .menu{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        
+    }
+  }
