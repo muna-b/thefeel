@@ -61,4 +61,13 @@
     .imgBox{
         height: 200px;
     }
+    .box{
+        flex-direction: column;
+        height: 1000px;
+        padding: 0px;
+        margin-top: 0px;
+    }
+    .cardContainer{
+        height: 150px;
+    }
     }
