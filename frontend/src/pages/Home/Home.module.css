@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
+    flex-wrap: wrap;
 }
 .imgBox{
     height: 300px;
@@ -22,6 +22,8 @@
     height: 300px;
     width: 300px;
     color: #fff;
+    text-align: center;
+    margin-left: 50px;
 }
 .titleBox{
     background: #6b62ff;
@@ -29,26 +31,37 @@
     font-family: 'Baloo Chettan 2', cursive;
 }
 
-
 .box{
-    height: 400px;
+    height: 450px;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     margin-top: 50px;
     padding: 0px 100px;
 }
-.computerBox{
-    height: 250px;
-    width: 250px;
+.box2{
+    height: 450px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+    padding: 0px 100px;
+    background: #80A5D6;
 }
-.computerBox img{
-    height: 100%;
-    width: 100%;
+.paragraphBox{
+    height: 300px;
+    width: 500px;
+    margin: 30px;
 }
-
-.cardContainer{
-    width: 350px;
-    height: 350px;
+.titleH2{
+    margin: 20px;
+    text-align: center;
+    color: aliceblue;
+}
+.videoBox{
+    height: 300px;
+    width: 500px;
+    border: 1px solid #004AAD;
     margin: 30px;
 }
 
@@ -63,11 +76,20 @@
     }
     .box{
         flex-direction: column;
-        height: 1000px;
+        height: 1500px;
         padding: 0px;
         margin-top: 0px;
     }
     .cardContainer{
         height: 150px;
+    }
+    .box2{
+        margin-top: 10px;
+        flex-wrap: wrap;
+        height: 1200px;
+
+    }
+    .paragraphBox{
+        margin: 0px;
     }
     }

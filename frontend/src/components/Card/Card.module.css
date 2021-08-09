@@ -1,0 +1,17 @@
+.container{
+    width: 350px;
+    height: 350px;
+    margin: 30px;
+}
+.cardImage{
+    height: 300px;
+}
+.cardText{
+    height: 300px;
+    width: 300px;
+    margin: 20px 10px;
+}
+.imageSize{
+    height: 100%;
+    width: 100%;
+}
