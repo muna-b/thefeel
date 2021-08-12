@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from '../../components/Card/Card'
+import Player from '../../components/Player/Player'
 import Header from './../../components/Header/Header'
 import classNames from './Home.module.css'
 
@@ -49,11 +50,19 @@ function Home() {
                             Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.
                             </p>
                         </div>
-                        <div className = {classNames.videoBox}>
-                            VIDEO
+                        <Player />
+                    </div>
+                    <div className = {classNames.box}>                        
+                        <div className = {classNames.photoBox}>
+                            <img src="http://lorempixel.com/500/300/city/" alt=""/>
+                        </div>
+                        <div className = {classNames.paragraphBox}>
+                            <h3 className = {classNames.titleH2}>Présentation</h3>
+                            <p>
+                            Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum.
+                            </p>
                         </div>
                     </div>
-                    <div className = {classNames.box}></div>                        
 
                 </div>
         </div>

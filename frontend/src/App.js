@@ -12,6 +12,7 @@ function App() {
       <Routes />
 
       <Contact />
+      <Footer />
     </Router>
   );
 }

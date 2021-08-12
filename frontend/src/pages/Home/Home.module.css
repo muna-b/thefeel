@@ -5,11 +5,11 @@
 
 .blueBox{
     background-color: #004AAD;
-    height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 50px;
 }
 .imgBox{
     height: 300px;
@@ -32,20 +32,20 @@
 }
 
 .box{
-    height: 450px;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     align-items: center;
     margin-top: 50px;
     padding: 0px 100px;
 }
 .box2{
-    height: 450px;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     align-items: center;
     margin-top: 50px;
-    padding: 0px 100px;
+    padding: 50px 100px;
     background: #80A5D6;
 }
 .paragraphBox{
@@ -58,21 +58,18 @@
     text-align: center;
     color: aliceblue;
 }
-.videoBox{
-    height: 300px;
-    width: 500px;
-    border: 1px solid #004AAD;
-    margin: 30px;
-}
+
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
     /* Styles */
     .blueBox{
         flex-direction: column-reverse;
-        height: 600px;
     }
     .imgBox{
         height: 200px;
+    }
+    .textBox{
+        margin: 0px;
     }
     .box{
         flex-direction: column;
@@ -84,12 +81,13 @@
         height: 150px;
     }
     .box2{
-        margin-top: 10px;
+        margin-top: 5px;
         flex-wrap: wrap;
-        height: 1200px;
+        padding: 0px 10px;
 
     }
-    .paragraphBox{
-        margin: 0px;
+    .titleH2{
+        margin: 15px;
     }
+    
     }

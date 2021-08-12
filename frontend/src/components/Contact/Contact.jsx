@@ -3,8 +3,10 @@ import classNames from './Contact.module.css';
 
 function Contact() {
     const [open, setOpen] = useState(false);
+    const [hidden, setHidden] = useState(true);
     const onClick = (event) => {
 		setOpen(!open)
+        setHidden(hidden)
 	}
 
     const [firstname, setFirstname] = useState ();
@@ -49,7 +51,8 @@ function Contact() {
     }
     
     return (
-        <div className={classNames.mainContainer}>
+        <div className={classNames.contactBox}>
+            <div className={classNames.mainContainer}>
             <div className = {classNames.test}>
             </div>
             <button className = {classNames.contactButton}onClick={onClick}>Nous contacter <i class="far fa-edit"></i></button>
@@ -98,6 +101,7 @@ function Contact() {
 
                 </form>
             </div>
+        </div>
         </div>
     )
 }
