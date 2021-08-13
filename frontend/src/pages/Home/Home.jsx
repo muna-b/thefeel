@@ -1,13 +1,10 @@
 import React from 'react'
 import Card from '../../components/Card/Card'
 import Player from '../../components/Player/Player'
-import Header from './../../components/Header/Header'
 import classNames from './Home.module.css'
 
 function Home() {
     return (
-        <div>
-            <Header />
                 <div className = {classNames.container}>
                     <div className = {classNames.blueBox}>
                         <div className = {classNames.imgBox}>
@@ -65,7 +62,6 @@ function Home() {
                     </div>
 
                 </div>
-        </div>
     )
 }
 
