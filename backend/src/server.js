@@ -14,9 +14,10 @@ fastify.register(require('fastify-jwt'), {
 })
 
 fastify.register(require('fastify-cors',), {
-  origin: "*"
+  origin: "http://localhost:3000"
 })
-  
+
+fastify.register(require('./routes/users'))
 const start = async () => {
   try {
     await fastify.listen(3001)
