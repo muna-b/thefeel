@@ -1,0 +1,44 @@
+.blueBox{
+    background-color: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+.imgBox{
+    height: 300px;
+}
+.img{
+    height: 100%;
+    width: 100%;
+}
+.titleBox{
+    background: #6b62ff;
+    text-align: center;
+    font-family: 'Baloo Chettan 2', cursive;
+}
+.textBox{
+    height: 300px;
+    width: 300px;
+    color: #fff;
+    text-align: center;
+    margin-left: 50px;
+}
+@media screen and (min-width: 810px) {
+    .textBox{
+        margin-top: 30px;
+    }
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+    .blueBox{
+        flex-direction: column-reverse;
+    }
+    .imgBox{
+        height: 200px;
+    }
+    .textBox{
+        margin: 0px;
+    }
+}

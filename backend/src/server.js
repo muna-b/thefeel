@@ -18,6 +18,7 @@ fastify.register(require('fastify-cors',), {
 })
 
 fastify.register(require('./routes/users'))
+fastify.register(require('./routes/lessons'))
 const start = async () => {
   try {
     await fastify.listen(3001)

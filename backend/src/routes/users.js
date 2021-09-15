@@ -9,7 +9,10 @@ async function routes(fastify, options) {
                 properties: {
                     username: { type:'string'},
                     email: { type:'string'},
-                    password: { type:'string'},
+                    password: { 
+                        type:'string',
+                        pattern: '#^(?=.*[a-z])(?=.*[0-9])[a-zA-Z0-9][\w]{8,20}$#'
+                    },
                     dateOfBirth: { type:'string'},
                     adress: { type:'string'},
                 },

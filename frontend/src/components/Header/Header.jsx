@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import classNames from './Header.module.css'
+import { Link } from 'react-router-dom'
 
 function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -13,16 +14,18 @@ function Header() {
           <div className = {classNames.burger} onClick={toggleMenu}>
             <i className="fas fa-bars"></i>
           </div>
-          <div className = {classNames.logo}>
-            <img src="logothefeel.png" alt="logo" />
-          </div>
+            <div className = {classNames.logo}>
+              <Link to='/'>
+                <img src="logothefeel.png" alt="logo" />
+              </Link>
+            </div>
           <ul className={classNames.tabletMenu}>
-            <li>The feel</li>
-            <li>Formation</li>
+            <li>Présentation</li>
+            <li>Notre formation</li>
             <li>Témoignages</li>
           </ul>
           <ul className={classNames.tabletMenu}>
-            <li> <i class="far fa-user-circle"></i> mon compte</li>
+            <li><Link to='/login'> <i class="far fa-user-circle"></i> mon compte </Link></li>
           </ul>
         </header>
           <ul className={`${classNames.menu} ${menuOpen ? classNames.active : ''}`}>
@@ -31,7 +34,11 @@ function Header() {
             <li>Témoignages</li>
           </ul>
           <ul className={`${classNames.menu} ${menuOpen ? classNames.active : ''}`}>
-            <li> <i class="far fa-user-circle"></i> mon compte</li>
+            <li className ={classNames.button} >
+              <Link to='/login'>
+                <i class="far fa-user-circle"></i> mon compte 
+                </Link>
+              </li>
           </ul>
       </div>
     )

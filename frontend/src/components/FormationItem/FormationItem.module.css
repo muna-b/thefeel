@@ -1,0 +1,46 @@
+.container{
+    padding: 50px 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 74, 173, .05);
+
+}
+.title{
+    color: var(--blue);
+}
+.lessons{
+    border-radius: 5px;
+    box-shadow: 5px 5px 2px 1px rgba(0, 74, 173, .3); 
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff;
+}
+.button{
+    font-size: 1.3em;
+    border-radius: 4px;
+    background-color: var(--blue);
+    border: none;
+    padding: 8px 18px;
+    color:white;
+    margin-top:40px;
+    cursor: pointer;
+    transition: box-shadow 0.5s, background-color 0.5s, color 0.5s;
+}
+.button:hover{
+    background-color:#80A5D6;
+    box-shadow: inset 0px 0px 10px var(--blue);
+    color: black;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .container{
+        padding: 10px 20px 40px 15px;
+    }
+    .lessons{
+        border-radius: 5px;
+        box-shadow: 0px 0px 0px 0px;
+        margin-top: 15px;
+        padding: 20px;
+    }
+}

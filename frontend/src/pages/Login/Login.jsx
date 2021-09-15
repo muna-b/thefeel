@@ -59,6 +59,7 @@ function Login() {
                     </div>
                     <div>
                         <button type="submit" className={classNames.button}>Se connecter</button>
+                        <p>S'abonner</p>
                     </div>
                 </form>
             </div>

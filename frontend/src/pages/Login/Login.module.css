@@ -11,7 +11,7 @@
     width: 300px;
     border-radius: 5px;
     box-shadow: 12px 12px 2px 1px rgba(0, 74, 173, .2);
-    border: 1px #004AAD solid;
+    border: 1px var(--blue) solid;
     flex-direction: column;   
 }
 .title{
@@ -30,7 +30,7 @@
 }
 .button{
     border-radius: 4px;
-    background-color: #004AAD;
+    background-color: var(--blue);
     border: none;
     padding: 8px 18px;
     color:white;
@@ -40,6 +40,6 @@
 }
 .button:hover{
     background-color:#80A5D6;
-    box-shadow: inset 0px 0px 10px #004AAD;
+    box-shadow: inset 0px 0px 10px var(--blue);
     color: black;
 }
