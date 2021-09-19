@@ -1,0 +1,93 @@
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.blueBox{
+    background-color: #004AAD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+.imgBox{
+    height: 300px;
+}
+.img{
+    height: 100%;
+    width: 100%;
+}
+.textBox{
+    height: 300px;
+    width: 300px;
+    color: #fff;
+    text-align: center;
+    margin-left: 50px;
+}
+.titleBox{
+    background: #6b62ff;
+    text-align: center;
+    font-family: 'Baloo Chettan 2', cursive;
+}
+
+.box{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 50px;
+    padding: 0px 100px;
+}
+.box2{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 50px;
+    padding: 50px 100px;
+    background: #80A5D6;
+}
+.paragraphBox{
+    height: 300px;
+    width: 500px;
+    margin: 30px;
+}
+.titleH2{
+    margin: 20px;
+    text-align: center;
+    color: aliceblue;
+}
+
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    /* Styles */
+    .blueBox{
+        flex-direction: column-reverse;
+    }
+    .imgBox{
+        height: 200px;
+    }
+    .textBox{
+        margin: 0px;
+    }
+    .box{
+        flex-direction: column;
+        height: 1500px;
+        padding: 0px;
+        margin-top: 0px;
+    }
+    .cardContainer{
+        height: 150px;
+    }
+    .box2{
+        margin-top: 5px;
+        flex-wrap: wrap;
+        padding: 0px 10px;
+
+    }
+    .titleH2{
+        margin: 15px;
+    }
+    
+    }

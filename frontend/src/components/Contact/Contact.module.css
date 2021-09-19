@@ -1,0 +1,88 @@
+.mainContainer{
+    background-color: #004AAD;
+    border: #004AAD 1px solid;
+    display: flex;
+}
+.test{
+    height: 100%;
+    width: 60%;
+    border-top: 70px solid #fff;
+    border-right: 100px solid transparent;
+}
+.contactButton{
+    background-color: #004AAD;
+    color: #fff;
+    border: #fff solid 1px;
+    border-radius: 5px;
+    margin: 10px;
+    width: 200px;
+    height: 40px;
+    font-size: 1.2em;
+    align-self: center;
+    padding: 5px;
+}
+.container{
+background-color: #004AAD;
+width: 60%;
+padding: 20px;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.container select{
+    background-color: #80A5D6;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.container input{
+    background-color: #80A5D6;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 1px #004AAD;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.message textarea{
+    margin:0px;
+    width: 100%;
+    height: 120px;
+    background-color: #80A5D6;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.disable{
+    display: none;
+}
+
+.span{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.span > input{
+    background-color: #80A5D6;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .test{
+        display: none;
+    }
+    .mainContainer{
+        justify-content: center;
+    }
+    .container{
+        padding:10px;
+        z-index: 2;
+    }
+  }

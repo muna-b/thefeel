@@ -1,0 +1,19 @@
+.menuContainer{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #004AAD;
+}
+.menu{
+    display: flex;
+    flex-direction: row;
+}
+@media only screen and (max-width: 600px) {
+    .menu{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        
+    }
+  }
