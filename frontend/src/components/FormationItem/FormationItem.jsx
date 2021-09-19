@@ -7,7 +7,7 @@ const FormationItem = ({ lesson }) => {
             <div>
 
             </div>
-                      
+        
         </section>
     )
 }
