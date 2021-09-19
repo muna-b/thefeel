@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import classNames from './FormationList.module.css'
-import FormationItem from "../FormationItem/FormationItem"
 
 const FormationList = () => {
     const [lessons, setLessons] = useState([])

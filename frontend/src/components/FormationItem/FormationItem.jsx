@@ -1,13 +1,13 @@
 import React from 'react'
 
-const FormationItem = (props) => {
-    const { lessonInfo } = props
-    return (
+
+const FormationItem = ({ lesson }) => {
+    return (   
         <section>
-            <article>
-                <p>Titre: {lessonInfo.title}</p>
-            </article>
-            
+            <div>
+
+            </div>
+                      
         </section>
     )
 }
