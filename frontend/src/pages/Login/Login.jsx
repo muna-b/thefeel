@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { Redirect } from 'react-router'
+import { Redirect, useHistory } from 'react-router'
 import classNames from './Login.module.css'
+
 
 function Login() {
     const [email, setEmail] = useState("")
@@ -27,7 +28,11 @@ function Login() {
         const data = await response.json()
         setToken(data.token)
     }
-
+    const history = useHistory()
+    const redirect = path => {
+        history.push(path)
+    }
+    
     if(token){
 		return <Redirect to = "/"/>
 	}
@@ -35,7 +40,7 @@ function Login() {
     return (
         <main className={classNames.mainContainer}>
             <div className={classNames.container}>
-                <label className={classNames.title}>Identifiez vous !</label>
+                <h4 className={classNames.title}>Identifiez vous !</h4>
                 <form onSubmit={onSubmitHandler}>
                     <div className={classNames.inputDiv}>
                         <input 
@@ -59,7 +64,7 @@ function Login() {
                     </div>
                     <div>
                         <button type="submit" className={classNames.button}>Se connecter</button>
-                        <p>S'abonner</p>
+                        <p onClick={ () => redirect ("/user/new")}>S'abonner</p>
                     </div>
                 </form>
             </div>

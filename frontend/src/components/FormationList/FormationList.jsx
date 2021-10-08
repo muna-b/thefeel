@@ -1,8 +1,13 @@
 import { useState, useEffect } from 'react'
+import { useHistory } from 'react-router'
 import classNames from './FormationList.module.css'
 
 const FormationList = () => {
     const [lessons, setLessons] = useState([])
+    const history = useHistory()
+    const redirect = path => {
+        history.push(path)
+    }
     
     useEffect( () => {
         const fetchLessons = async() => {
@@ -20,7 +25,7 @@ const FormationList = () => {
                                         <h4>{lesson.title}</h4>
                                         <p>{lesson.description}</p>
                                     </div>)}
-            <button className = {classNames.button}> S'abonner </button>
+            <button className = {classNames.button} onClick={ () => redirect ("/user/new")}> S'abonner </button>
         
         </section>
     )

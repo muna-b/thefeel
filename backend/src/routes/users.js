@@ -11,7 +11,8 @@ async function routes(fastify, options) {
                     email: { type:'string'},
                     password: { 
                         type:'string',
-                        pattern: '#^(?=.*[a-z])(?=.*[0-9])[a-zA-Z0-9][\w]{8,20}$#'
+                        // pattern: '#^(?=.*[a-z])(?=.*[0-9])[a-zA-Z0-9][\w]{8,20}$#'
+                        //Le mot de passe doit contenir au moins 8 caractères, une lettre et un chiffre
                     },
                     dateOfBirth: { type:'string'},
                     adress: { type:'string'},
@@ -33,9 +34,11 @@ async function routes(fastify, options) {
             password: hashedPassword,
             role: 'user'
         })
+        reply.redirect("/login")
         return{
             id: result.ops[0]._id
         }
+        
     })
     //#endregion
 

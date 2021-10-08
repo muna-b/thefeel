@@ -45,7 +45,7 @@ async function routes(fastify) {
         const db = fastify.mongo.db
         const collection = db.collection('lessons')
         const result = await collection.findOne({
-            _id: ObjectId(request.params.id)
+            _id: new ObjectId(request.params.id)
         })
         if (result === null){
             throw new createError.NotFound()

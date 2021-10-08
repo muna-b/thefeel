@@ -1,0 +1,44 @@
+.mainContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    border-radius: 5px;
+    box-shadow: 12px 12px 2px 1px rgba(0, 74, 173, .2);
+    border: 1px var(--blue) solid;
+    flex-direction: column;   
+}
+.title{
+    margin-bottom: 30px;
+    color: #d00b0c;
+}
+.inputDiv{
+    margin-bottom: 10px;
+}
+.inputDiv input{
+    background-color: #80A5D6;
+    border:none;
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+}
+.button{
+    border-radius: 4px;
+    background-color: var(--blue);
+    border: none;
+    padding: 8px 18px;
+    color:white;
+    margin-top:20px;
+    cursor: pointer;
+    transition: box-shadow 0.5s, background-color 0.5s, color 0.5s;
+}
+.button:hover{
+    background-color:#80A5D6;
+    box-shadow: inset 0px 0px 10px var(--blue);
+    color: black;
+}
