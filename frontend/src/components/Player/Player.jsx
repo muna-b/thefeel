@@ -8,7 +8,6 @@ function Player() {
             <ReactPlayer 
                 url = 'https://www.youtube.com/watch?v=5Peo-ivmupE'
                 className="react-player"
-                playing
                 width= "100%"
                 height= "100%"
             />

@@ -4,7 +4,7 @@ import classNames from './Contact.module.css';
 function Contact() {
     const [open, setOpen] = useState(false);
     const [hidden, setHidden] = useState(true);
-    const onClick = (event) => {
+    const onClick = () => {
 		setOpen(!open)
         setHidden(hidden)
 	}
@@ -32,7 +32,7 @@ function Contact() {
 
     const onChangeHandler = async (event) => {
         event.preventDefault()
-        const response = await fetch("http://localhost:3005/contact", {
+        const response = await fetch("http://localhost:3001/contact", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -89,7 +89,13 @@ function Contact() {
                     </div>
                     <br/>
                     <div className={classNames.message}>
-                        <textarea value={ message } onChange= { onChangeMessage } name="message" id="" cols="" rows="" placeholder="message" required></textarea>
+                        <textarea 
+                        value={ message }
+                        onChange= { onChangeMessage }
+                        name="message"
+                        placeholder="message"
+                        required
+                        />
                     </div>
 
                     <div className={classNames.span}>

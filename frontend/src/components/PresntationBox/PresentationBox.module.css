@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 50px;
+    padding: 50px 100px;
+    background: #80A5D6;
+}
+.paragraphBox{
+    width: 500px;
+    margin: 30px;
+}
+.titleH2{
+    margin: 20px;
+    text-align: center;
+    color: aliceblue;
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .container{
+        padding: 10px 15px 40px 15px;
+    }
+}

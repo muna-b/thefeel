@@ -1,96 +1,106 @@
 :root {
-    /* Ici on définie la variable "violet" */
     --violet: #fff;
     --blue: #004AAD;
     --breakpointTablet: 768px;
     --defaultPadding: 1rem;
   }
 .header {
-    display: flex;
-    background-color: var(--violet);
-    color: var(--blue);
-    padding: var(--defaultPadding);
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
-  }
+  display: flex;
+  background-color: var(--violet);
+  color: var(--blue);
+  padding: var(--defaultPadding);
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
   
+.burger {
+  position: absolute;
+  left: var(--defaultPadding);
+  color: var(--blue);
+}
+  
+.burger i {
+  font-size: 2rem;
+}
+  
+.menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  background-color: var(--violet);
+  position: absolute;
+  width: 100%;
+  transform: translateY(-100%);
+  z-index: 0;
+  transition: transform .5s;
+  font-family: 'Baloo Chettan 2', cursive;
+  color: var(--blue);
+  font-size: 1.2rem;
+}
+
+.button{
+  border: var(--blue) solid 1px;
+  border-radius: 5px;
+}
+
+.active {
+  transform: translateY(0);
+}
+
+.menu li{
+  display: block;
+  padding: var(--defaultPadding);
+}
+  
+.logo img {
+  max-height: 50px;
+}
+
+
+.tabletMenu {
+  display: none;
+}
+
+a{
+  color: var(--blue);
+  text-decoration: none;
+}
+
+  
+/* TABLET DESIGN */
+@media screen and (min-width: 810px) {
   .burger {
-    position: absolute;
-    left: var(--defaultPadding);
-    color: var(--blue);
+    display: none;
   }
-  
-  .burger i {
-    font-size: 2rem;
+
+  .header {
+    justify-content: space-between;
   }
-  
-  .menu {
+
+  .tabletMenu {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    background-color: var(--violet);
-    position: absolute;
-    width: 100%;
-    transform: translateY(-100%);
-    z-index: 0;
-    transition: transform .5s;
+    display: flex;
     font-family: 'Baloo Chettan 2', cursive;
     color: var(--blue);
     font-size: 1.2rem;
   }
-  
-  .active {
-    transform: translateY(0);
-  }
-  
-  .menu li{
+
+  .tabletMenu li {
     display: block;
-    padding: var(--defaultPadding);
-  }
-  
-  .logo img {
-    max-height: 50px;
   }
 
-  
-  .tabletMenu {
+  .tabletMenu li {
+    display: block;
+    padding: var(--defaultPadding);
+    color: var(--blue);
+    text-decoration: none;
+  }
+
+  .menu {
     display: none;
   }
-  
-  /* TABLET DESIGN */
-  @media screen and (min-width: 768px) {
-    .burger {
-      display: none;
-    }
-  
-    .header {
-      justify-content: space-between;
-    }
-  
-    .tabletMenu {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      font-family: 'Baloo Chettan 2', cursive;
-      color: var(--blue);
-      font-size: 1.2rem;
-    }
-  
-    .tabletMenu li {
-      display: block;
-    }
-  
-    .tabletMenu li {
-      display: block;
-      padding: var(--defaultPadding);
-      color: var(--blue);
-      text-decoration: none;
-    }
-  
-    .menu {
-      display: none;
-    }
-  }
+}
