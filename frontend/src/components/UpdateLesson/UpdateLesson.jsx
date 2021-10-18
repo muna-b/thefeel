@@ -1,6 +1,7 @@
 import {useState} from 'react'
 
-const UpdateLesson = ({ lesson }) => {
+const UpdateLesson = ({ lessonId }) => {
+    const [lesson, setLesson] = useState([])
     const [isEditing, setIsEditing] = useState(false)
     const [editedTitle, setEditedTitle] = useState('')
     const [editedDescription, setEditedDescription] = useState('')
@@ -9,10 +10,10 @@ const UpdateLesson = ({ lesson }) => {
 
     const onSubmitHandler = async (event) => {
         event.preventDefault()
-        const response = await fetch(`http://localhost:3001/lessons/${lesson.id}`,{
+        const response = await fetch(`http://localhost:3001/lessons/${lessonId}`,{
             method: "PATCH",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": 'application/x-www-form-urlencoded'
             },
             body: JSON.stringify({
                 title: editedTitle ? editedTitle : lesson.title,
@@ -23,6 +24,7 @@ const UpdateLesson = ({ lesson }) => {
         })
         const data = await response.json
         console.log(data);
+        setLesson(data)
     }
 
     return (

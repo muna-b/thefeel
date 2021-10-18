@@ -1,21 +1,23 @@
-import {useState, useEffect} from 'react'
-import UpdateLesson from '../UpdateLesson/UpdateLesson'
+import { useEffect, useState } from 'react'
 
-
-const FormationItem = ({lessonId}) => {
+function EditLesson({lessonId}) {
     const [lesson, setLesson] = useState([])
-    
     useEffect(() => {
 	const fetchLesson = async () => {
 	const response = await fetch('http://localhost:3001/lessons/'+lessonId,{
-            method: 'GET',
+            method: 'PATCH',
         })
 		const data = await response.json()
 		console.log(data)
 		setLesson(data)
 	}
     fetchLesson()
-    }, [])
+    })
+    const [edit, setEdit] = (false)
+    const [text, setText] = ("")
+    const handleEdit = (e) => {
+        
+    }
     
     return (   
         <section>
@@ -26,11 +28,10 @@ const FormationItem = ({lessonId}) => {
                     <div>{lesson.video}</div>
                     <p>{lesson.content}</p>
                     </div>}
-                    <UpdateLesson />
                 
 			
         </section>
     )
 }
 
-export default FormationItem
+export default EditLesson

@@ -65,7 +65,8 @@ function Contact() {
                                     <input 
                                     placeholder={object.label}
                                     type={object.type} 
-                                    value={object.value} 
+                                    value={object.value}
+                                    defaultValue = {object.defaultValue}
                                     name={object.name} 
                                     onChange={ (ev) =>  object.onChange(ev.target.value) } 
                                     required={object.required} 

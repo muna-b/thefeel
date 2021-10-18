@@ -16,7 +16,7 @@ const FormationList = () => {
         setLessons(data)
         } 
         fetchLessons()
-    })
+    },[])
 
     return (
         <section className = {classNames.container}>

@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import classNames from './Header.module.css'
 import { Link } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link'
 
 function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -20,9 +21,15 @@ function Header() {
               </Link>
             </div>
           <ul className={classNames.tabletMenu}>
-            <li>Présentation</li>
+            <HashLink smooth to="/#presentation">
+              <li>Présentation</li>
+            </HashLink>
+            <HashLink smooth to="/#formation">
             <li>Notre formation</li>
+            </HashLink>
+            <HashLink smooth to="/#testimoies">
             <li>Témoignages</li>
+            </HashLink>
           </ul>
           <ul className={classNames.tabletMenu}>
             <li><Link to='/login'> <i class="far fa-user-circle"></i> mon compte </Link></li>

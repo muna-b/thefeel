@@ -1,5 +1,6 @@
 const argon2 = require('argon2')
 const createError= require('http-errors')
+const transport = require('./../nodemailer')
 
 async function routes(fastify, options) {
     //#region users
@@ -34,7 +35,13 @@ async function routes(fastify, options) {
             password: hashedPassword,
             role: 'user'
         })
-        reply.redirect("/login")
+        await transport.sendMail({ 
+            from: '"The Feel" <noreply@thefeel.com>',
+            to: user.email,
+            subject: "Test",
+            text: "Ceci est un test",
+            html: "<p>Ceci est un test au format HTML</p>"
+        })
         return{
             id: result.ops[0]._id
         }
@@ -56,6 +63,8 @@ async function routes(fastify, options) {
             }
         }
     }
+
+
     fastify.post('/login', optsLogin, async (request, reply) => {
         const { email, password } = request.body
         const db = fastify.mongo.db
@@ -67,10 +76,30 @@ async function routes(fastify, options) {
         const token = await reply.jwtSign({
             id: user._id,
             role: user.role,
-            expireIn: "10m"
+            expireIn: "24h"
         })
-        reply.code(200).send({token})
+        reply
+        .setCookie('jwt', token, {
+            domain: process.env.URL,
+            path: '/',
+            secure: true,
+            httpOnly: true,
+            signed: true
+        })
+        .code(200).send({token})
     })
     //#endregion
+
+    fastify.get('/logout', async (request, reply) => {
+        
+    })
+
+    // fastify.get('/', async (request, reply) => {
+    //     const userId = await request.params.id
+    //     const db = fastify.mongo.db
+    //     const collection = db.collection('users')
+    //     const user = await collection.findOne({_id})
+    //     return user
+    // })
 }
 module.exports = routes
