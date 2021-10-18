@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Redirect } from 'react-router'
 import classNames from './RegisterForm.module.css'
 
 function RegisterForm() {
@@ -9,7 +8,7 @@ function RegisterForm() {
     const [confirmPassword, setConfirmPassword] = useState("")
     const [dateOfBirth, setDateOfBirth] = useState("")
     const [adress, setAdress] = useState("")
-    const [isSubmited, setIsSubmited] = useState()
+    //const [isSubmited, setIsSubmited] = useState()
         
     const onChangeUserName = (e) => {
         setUsername(e.target.value)
@@ -56,9 +55,9 @@ function RegisterForm() {
         })
         await response.json()
     }
-    if(isSubmited){
-        return <Redirect to= "/login"/>
-    }
+    // if(isSubmited){
+    //     return <Redirect to= "/dashboard"/>
+    // }
 
     return (
         <main className={classNames.mainContainer}>
@@ -123,7 +122,7 @@ function RegisterForm() {
                             onChange={onChangeAdress}
                         />
                     </div>
-                    <button type="submit" onClick={setIsSubmited} className={classNames.button}> Creer mon compte</button>
+                    <button type="submit"className={classNames.button}> Creer mon compte</button>
                 </form>
             </div>
         </main>

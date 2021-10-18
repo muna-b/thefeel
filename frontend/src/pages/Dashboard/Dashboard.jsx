@@ -15,7 +15,7 @@ function Dashboard(props) {
         setLessons(data)
         } 
         fetchLessons()
-    })
+    }, [])
     return (
         <div>
             <h2>Dashboard Admin</h2>
