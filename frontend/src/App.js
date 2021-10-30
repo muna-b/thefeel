@@ -12,7 +12,7 @@ import { UseridContext } from './components/App.Context';
 function App() {
   const [userId, setUserId] = useState(null)
   const appToken = localStorage.getItem('token')
-  useEffect( () => {
+  useEffect( ( ) => {
     const fetchToken = async() => {
     const response = await fetch (`${process.env.REACT_APP_API_URL}private`,{
       method: 'GET',
@@ -25,7 +25,7 @@ function App() {
     })
     const data = await response.json()
     setUserId(data)
-    console.log(appToken)
+    console.log(typeof(appToken))
     console.log(data)
     }
     fetchToken()

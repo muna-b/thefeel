@@ -1,0 +1,19 @@
+.mainContainer{
+    display: flex;
+}
+.container{
+    display: flex;
+    align-items: space-around;
+    margin: 5px 30px;
+    flex-direction: column;   
+}
+.title{
+    align-self: center;
+    margin-bottom: 5px;
+}
+tr{
+    border-radius: 5px;
+    /* box-shadow: 12px 12px 2px 1px rgba(0, 74, 173, .2); */
+    border: 1px var(--blue) solid;
+    margin: 50px;
+}

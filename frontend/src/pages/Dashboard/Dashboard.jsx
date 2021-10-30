@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import  { useHistory } from 'react-router-dom'
+import classNames from './Dashboard.module.css'
 
 function Dashboard(props) {
     const [lessons, setLessons] = useState([])
@@ -17,32 +18,36 @@ function Dashboard(props) {
         fetchLessons()
     }, [])
     return (
-        <div>
-            <h2>Dashboard Admin</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    { lessons.map(lesson =>
+        <main className = {classNames.mainContainer}>
+            <div className = {classNames.container}>
+                <div className = {classNames.title}>
+                    <h2>Dashboard Admin</h2>
+                </div>“
+                <table>
+                    <thead>
                         <tr>
-
-                            <td>{ lesson.title }</td>
-                            <td>{ lesson.description }</td>
-                            <td>
-                                <button onClick={ () => show ("/lessons/"+lesson._id) }>Afficher</button>
-                               
-                                <button>Supprimer</button>
-                            </td>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Actions</th>
                         </tr>
-                    )}
-                </tbody>
-            </table>
-        </div>
+                    </thead>
+                    <tbody>
+                        { lessons.map(lesson =>
+                            <tr>
+
+                                <td>{ lesson.title }</td>
+                                <td>{ lesson.description }</td>
+                                <td>
+                                    <button onClick={ () => show ("/lessons/"+lesson._id) }>Afficher</button>
+                                
+                                    <button>Supprimer</button>
+                                </td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            </div>
+        </main>
     )
 }
 

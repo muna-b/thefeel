@@ -11,6 +11,7 @@ async function routes(fastify) {
                     title: { type: 'string' },
                     description: { type: 'string' },
                     content: { type: 'string' },
+                    image: { type:'string'},
                     video: { type: 'string' },
                 },
                 additionalProperties: false,

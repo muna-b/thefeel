@@ -79,13 +79,6 @@ async function routes(fastify, options) {
             expireIn: "24h"
         })
         reply
-        .setCookie('jwt', token, {
-            domain: process.env.URL,
-            path: '/',
-            secure: true,
-            httpOnly: true,
-            signed: true
-        })
         .code(200).send({token})
     })
     //#endregion

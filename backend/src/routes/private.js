@@ -12,6 +12,9 @@ async function routes(fastify, options) {
 	// 	})
 	// 	reply
 	// })
+	// fastify.addHook('onSend', (request, reply)=>{
+	// reply.header("Access-Control-Allow-Origin");
+	// })
 }
 
 module.exports = routes
