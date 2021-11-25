@@ -9,6 +9,7 @@ import classNames from './Home.module.css'
 
 function Home() {
     return (
+                window.title = 
                 <div className = {classNames.container}>
                     <BlueBox />
                     <div className = {classNames.box}>
@@ -32,8 +33,9 @@ function Home() {
                         />
                     </div>
                     <HashLink id="presentation">
-                        <PresentationBox />
+                        <div></div>
                     </HashLink>
+                    <PresentationBox />
                    
                     {/* <div className = {classNames.box}>                        
                         <div className = {classNames.photoBox}>
@@ -48,11 +50,13 @@ function Home() {
                         </div>
                     </div> */}
                     <HashLink id="formation">
-                        <FormationList />  
+                        <div></div>
                     </HashLink>
+                    <FormationList />  
                     <HashLink id="testimoies">
-                        <TestimonyCard />                  
+                        <div></div>
                     </HashLink>
+                    <TestimonyCard />                  
 
                 </div>
     )

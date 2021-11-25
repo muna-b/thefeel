@@ -78,7 +78,7 @@ const Login = () => {
                     <div className="password error"></div>
                     <div>
                         <button type="submit" className={classNames.button}>Se connecter</button>
-                        <p onClick={ () => redirect ("/user/new")}>S'abonner</p>
+                        <p onClick={ () => redirect ("/registration")}>S'abonner</p>
                     </div>
                 </form>
             </div>

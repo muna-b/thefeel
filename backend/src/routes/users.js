@@ -1,6 +1,7 @@
 const argon2 = require('argon2')
 const createError= require('http-errors')
 const transport = require('./../nodemailer')
+const { ObjectId } = require ('fastify-mongodb')
 
 async function routes(fastify, options) {
     //#region users
@@ -63,30 +64,25 @@ async function routes(fastify, options) {
             }
         }
     }
-
-
-    fastify.post('/login', optsLogin, async (request, reply) => {
-        const { email, password } = request.body
-        const db = fastify.mongo.db
-        const collection = db.collection('users')
-        const user = await collection.findOne({email})
-            if (!user) throw new createError.NotFound('Wrong email and/or password')
-        const match = await argon2.verify(user.password, password)
-            if (!match) throw new createError.NotFound('Wrong email and/or password')
-        const token = await reply.jwtSign({
-            id: user._id,
-            role: user.role,
-            expireIn: "24h"
-        })
-        reply
-        .setCookie('jwt', token, {
-            domain: process.env.URL,
-            path: '/',
-            secure: true,
-            httpOnly: true,
-            signed: true
-        })
-        .code(200).send({token})
+    fastify.route({
+        method: 'POST',
+        url: '/login',
+        handler: async(request, reply) =>{
+            const { email, password } = request.body
+            const db = fastify.mongo.db
+            const collection = db.collection('users')
+            const user = await collection.findOne({email})
+                if (!user) throw new createError.NotFound('Wrong email and/or password')
+            const match = await argon2.verify(user.password, password)
+                if (!match) throw new createError.NotFound('Wrong email and/or password')
+            const token = await reply.jwtSign({
+                id: user._id,
+                role: user.role,
+                expireIn: "1m "
+            })
+            reply
+            .code(200).send({token})
+        }
     })
     //#endregion
 
@@ -94,12 +90,18 @@ async function routes(fastify, options) {
         
     })
 
-    // fastify.get('/', async (request, reply) => {
-    //     const userId = await request.params.id
-    //     const db = fastify.mongo.db
-    //     const collection = db.collection('users')
-    //     const user = await collection.findOne({_id})
-    //     return user
-    // })
+    fastify.route({
+        method : 'GET',
+        url : '/user',
+        handler: async (request, reply) => {
+            const id = request.user_id
+            const db = fastify.mongo.db
+            const collection = db.collection('users')
+            const user = await collection.findOne({
+                _id: new ObjectId(request.params.id)
+            })
+            reply.send(user)
+        }
+    })
 }
 module.exports = routes

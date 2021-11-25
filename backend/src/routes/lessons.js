@@ -11,6 +11,7 @@ async function routes(fastify) {
                     title: { type: 'string' },
                     description: { type: 'string' },
                     content: { type: 'string' },
+                    image: { type:'string'},
                     video: { type: 'string' },
                 },
                 additionalProperties: false,
@@ -23,7 +24,7 @@ async function routes(fastify) {
         method: 'POST',
         url: '/lessons',
         schema: opts.schema,
-        // preValidation: fastify.authenticateAdmin,
+        preValidation: fastify.authenticateAdmin,
         handler: async(request, reply)=>{
             const db = fastify.mongo.db
             const collection = db.collection('lessons')
