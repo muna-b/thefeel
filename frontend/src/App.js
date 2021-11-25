@@ -11,19 +11,18 @@ import { UseridContext } from './components/App.Context';
 
 function App() {
   const [userId, setUserId] = useState(null)
-  const appToken = localStorage.getItem('token')
-  useEffect( ( ) => {
+  useEffect( () => {
     const fetchToken = async() => {
-    const response = await fetch (`${process.env.REACT_APP_API_URL}private`,{
-      method: 'GET',
-      headers: {
-      'Authorization': `Bearer ${appToken}`,
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    }
-
-    })
-    const data = await response.json()
+      const appToken = localStorage.getItem('token')
+      const response = await fetch (`${process.env.REACT_APP_API_URL}private`,{
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${appToken}`,
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        }
+      })
+      const data = await response.json()
     setUserId(data)
     console.log(typeof(appToken))
     console.log(data)
