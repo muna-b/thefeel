@@ -22,13 +22,13 @@ function Header() {
             </div>
           <ul className={classNames.tabletMenu}>
             <HashLink smooth to="/#presentation">
-              <li>Présentation</li>
+              <li className ={classNames.hover}>Présentation</li>
             </HashLink>
             <HashLink smooth to="/#formation">
-            <li>Notre formation</li>
+            <li className ={classNames.hover}>Notre formation</li>
             </HashLink>
             <HashLink smooth to="/#testimoies">
-            <li>Témoignages</li>
+            <li className ={classNames.hover}>Témoignages</li>
             </HashLink>
           </ul>
           <ul className={classNames.tabletMenu}>

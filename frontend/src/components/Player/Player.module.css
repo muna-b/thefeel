@@ -3,8 +3,14 @@
     width: 500px;
     height: 300px;
 }
-.react-player {
+/* .react-player {
     position: absolute;
     top: 0;
     left: 0;
-  }
+  } */
+
+.video{
+    position: absolute;
+    top: 0;
+    left: 0;
+}

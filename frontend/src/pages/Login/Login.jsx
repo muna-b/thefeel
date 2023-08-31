@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Redirect, useHistory } from 'react-router'
+import { useHistory } from 'react-router'
 import classNames from './Login.module.css'
 
 
@@ -21,7 +21,10 @@ const Login = () => {
         const response = await fetch(`${process.env.REACT_APP_API_URL}login`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Accept': 'application/json',
+                "Access-Control-Allow-Origin" : "*", 
+                "Access-Control-Allow-Credentials" : true 
             },
             body: JSON.stringify({
                 email,
@@ -33,21 +36,17 @@ const Login = () => {
             emailError.innerHtml = data.message
             passwordError.innerHtml = data.message
             console.log(data.message);
-        } 
-        // else {
-            //     window.location = ('/')
-            // }
+        }
+        else {
+                console.log(data);
+                // window.location = ('/')
+            }
             // setToken(data.token)
         }
         const history = useHistory()
         const redirect = path => {
             history.push(path)
         }
-    
-    
-	// if(token){
-	// 	return <Redirect to = "/"/>
-	// }
 
     return (
         <main className={classNames.mainContainer}>

@@ -12,10 +12,7 @@ async function authenticateAdmin(request, reply) {
 
 async function authenticateJWT(request, reply) {
 	try {
-		const token = request.headers?.authorization?.split(' ')[1]
-		// const decoded = await request.jwtVerify()
-		const decoded = await request.jwtVerify(token, process.env.SECRET)
-		return decoded
+		await request.jwtVerify()
 		
 	} catch (error) {
 		reply.code(500).send(error)

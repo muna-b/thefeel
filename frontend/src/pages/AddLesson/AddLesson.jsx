@@ -15,7 +15,7 @@ function AddLesson() {
         setContent(e.target.value)
     }
     const onChangeVideo = (e) => {
-        setVideo(e.target.value)
+        setVideo(URL.createObjectURL(e.target.files[0]))
     }
 
     const onSubmitHandler = async (e) => {
@@ -45,7 +45,7 @@ function AddLesson() {
         <main>
             <div>
                 <h3>Pour ajouter un nouveau cours rempli le formulaire ci dessous !</h3>
-                <form onSubmit = { onSubmitHandler }>
+                <form onSubmit = { onSubmitHandler } enctype="multipart/form-data">
                     <div>
                         <input 
                             type="text"
@@ -78,10 +78,11 @@ function AddLesson() {
                     </div>
                     <div>
                         <input 
-                            type="text"
+                            type= "file"
+                            accept= "video/*"
                             placeholder= "Vidéo"
                             name= "video"
-                            value = {video}
+                            value = { console.log(video) }
                             onChange = {onChangeVideo}
                             required    
                         />

@@ -14,7 +14,7 @@ function App() {
   useEffect( () => {
     const fetchToken = async() => {
       const appToken = localStorage.getItem('token')
-      const response = await fetch (`${process.env.REACT_APP_API_URL}private`,{
+      const response = await fetch (`${process.env.REACT_APP_API_URL}profile`,{
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${appToken}`,

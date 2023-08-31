@@ -1,5 +1,12 @@
 const createError = require('http-errors')
 const { ObjectId } = require('mongodb')
+const fs = require('fs')
+const util = require ('util')
+const path = require('path')
+const pipeline = require('stream')
+const pump = util.promisify(pipeline)
+const multer = require('multer')
+const upload = multer({ dest: 'uploads/' })
 
 async function routes(fastify) {
     //#region POST New lesson
@@ -11,7 +18,7 @@ async function routes(fastify) {
                     title: { type: 'string' },
                     description: { type: 'string' },
                     content: { type: 'string' },
-                    image: { type:'string'},
+                    image: { type:'string' },
                     video: { type: 'string' },
                 },
                 additionalProperties: false,
@@ -23,9 +30,15 @@ async function routes(fastify) {
     fastify.route({
         method: 'POST',
         url: '/lessons',
+        option: upload,
         schema: opts.schema,
-        preValidation: fastify.authenticateAdmin,
+        // preValidation: fastify.authenticateAdmin,
         handler: async(request, reply)=>{
+            const fileName = request.body.lessonId + ".mp4"
+            await pump( 
+                request.file.stream,
+                fs.createWriteStream(`${__dirname}/../../../frontend/public/uploads/lessons/${fileName}`)
+                )
             const db = fastify.mongo.db
             const collection = db.collection('lessons')
             const result = await collection.insertOne(request.body)

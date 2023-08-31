@@ -4,7 +4,7 @@
 Purpose
 --------------------
 
-The FEEL is an app where 
+The FEEL is an app where ...
 
 Tools used
 --------------------
@@ -32,8 +32,3 @@ Installation
 If you have Node.js already installed:
 # install node_modules
 $ npm install
-
-
-Ceci est un test de workflow par Tai avant création de DEVELOP
-
-Test réalisé après création de la branche feature sur DEVELOP

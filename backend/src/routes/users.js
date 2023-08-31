@@ -2,6 +2,20 @@ const argon2 = require('argon2')
 const createError= require('http-errors')
 const transport = require('./../nodemailer')
 const { ObjectId } = require ('fastify-mongodb')
+// const jwt = require('jsonwebtoken')
+// const createToken = (id) => {
+//     return jwt.sign({id}, process.env.SECRET, {
+//         expiresIn: maxAge
+//     })
+// }
+const maxAge = 3 * 24 * 60 * 60 * 1000
+// const { createPrivateKey } = require('crypto')
+// const { V4 } =  require('paseto')
+// const key = createPrivateKey
+// const payload = {
+
+// }
+
 
 async function routes(fastify, options) {
     //#region new users
@@ -82,8 +96,14 @@ async function routes(fastify, options) {
                     role: user.role,
                     expireIn: "30m "
                 })
-                reply
-                .code(200).send({token})
+                // const token = await V4.sign(payload, key('essayequelquechose'),{
+                //     expiresIn: '2 hours',
+                // })
+                // const token = createToken(user._id)
+                // reply.header('jwt', token, {httpOnly: true, maxAge})
+                // .code(200).send(console.log({user: user._id}))
+                reply.setCookie('jwt', token,{httpOnly: true, maxAge})
+                .code(200).send({user:user._id, token})
             } catch (error) {
                 reply.code(500).send(error)
             }                           
@@ -92,6 +112,9 @@ async function routes(fastify, options) {
     //#endregion
 
     fastify.get('/logout', async (request, reply) => {
+        reply.setCookie('jwt', '', { maxAge : 1 })
+        // reply.clearCookie('foo', {path: '/'})
+        .code(303).redirect('login')
         
     })
     //#region get user by _id

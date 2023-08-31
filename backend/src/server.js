@@ -18,15 +18,15 @@ fastify.register(require('fastify-mongodb'), {
   url: process.env.MONGODBURL
 })
 
-fastify.register(require('fastify-jwt'), {
+fastify.register(require('fastify-jwt'),{
   secret: process.env.SECRET,
-  // cookie: {
-  //   cookieName: 'token',
-  //   signed: 'false'
-  // }
+  cookie: {
+    cookieName: 'jwt',
+    signed: true
+  }
 })
 
-// fastify.register(require('fastify-cookie'))
+fastify.register(require('fastify-cookie'))
 
 fastify.register(require('fastify-stripe'), {
   apiKey: process.env.STRIPE_SECRET_TEST
@@ -34,14 +34,19 @@ fastify.register(require('fastify-stripe'), {
 
 fastify.register(require('fastify-cors',), {
   origin: process.env.URL,
-  methods: ["POST","GET","PATCH"],
-  preflightContinue: true,
-  optionsSuccessStatus: 201,
-  headers: 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
+  'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  'preflightContinue': false,
+
+  // AccessControlAllowOrigin : process.env.URL,
+  // methods: ["POST","GET","PATCH"],
+  // preflightContinue: true,
+  // optionsSuccessStatus: 201,
+  // headers: 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
+  // AccessControlAllowCredentials : true,
 })
 
 fastify.decorate('authenticate', authenticateJWT)
-fastify.decorate('authenticateAdmin', authenticateAdmin)
+// fastify.decorate('authenticateAdmin', authenticateAdmin)
 fastify.register(require('./routes/users'))
 fastify.register(require('./routes/lessons'))
 fastify.register(require('./routes/payment'))
